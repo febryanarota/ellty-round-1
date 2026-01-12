@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-montserrat: var(--font-montserrat);
   --shadow-card:
     0px 8px 15px 0px rgba(20, 20, 20, 0.12),
     0px 0px 4px 0px rgba(20, 20, 20, 0.10);
@@ -19,7 +18,11 @@
   --color-blue-press: #5087F8;
   --color-yellow-main: #FFCE22;
   --color-yellow-hover: #FFD84D;
+  --color-gray-hover: #BDBDBD;
+  --color-check-hover: #E3E3E3;
+  --color-check-press: #878787;
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -32,4 +35,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hide scrollbar but keep scrolling */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }

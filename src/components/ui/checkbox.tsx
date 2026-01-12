@@ -10,16 +10,16 @@ export default function Checkbox({ label, checked, onChange }: CheckboxProps) {
   return (
     <div 
       onClick={() => onChange(!checked)}
-      className="flex flex-row py-[8px] pr-[8px] pl-[10px] items-center justify-between cursor-pointer group select-none"
+      className="flex -top-1px w-full flex-row py-[8px] pr-[15px] pl-[22px] items-center justify-between cursor-pointer group select-none"
     >
-      <p className="text-sm text-black-main">{label}</p>
+      <p className="text-sm text-black-main leading-[26px]">{label}</p>
       
       {/* Checkbox Box */}
       <div 
         className={`
-          w-[23px] h-[23px] 
+          w-[25px] h-[25px] 
           flex items-center justify-center 
-          rounded-[4px] border transition-all duration-200 ease-in-out
+          rounded-[6px] border transition-all duration-200 ease-in-out
           
           ${checked 
             /* CHECKED STATE */
@@ -30,7 +30,7 @@ export default function Checkbox({ label, checked, onChange }: CheckboxProps) {
                 group-hover:bg-blue-press group-hover:border-blue-press
                 
                 /* ACTIVE */
-                active:bg-blue-checkbox active:border-blue-checkbox active:ring-[3px] active:ring-blue-100
+                group-active:bg-blue-checkbox group-active:border-blue-checkbox group-active:ring-[3px] active:ring-blue-checkbox/10
               `
             
             /* UNCHECKED STATE*/
@@ -38,10 +38,10 @@ export default function Checkbox({ label, checked, onChange }: CheckboxProps) {
                 bg-white border-gray-300 
 
                 /* HOVER: */  
-                group-hover:border-gray-400 
+                group-hover:border-gray-hover
 
                 /* ACTIVE */
-                active:border-blue-checkbox active:ring-[3px] active:ring-blue-100
+                group-active:border-gray-hover group-active:ring-[3px] group-active:ring-blue-checkbox/10
               `
           }
         `}
@@ -53,7 +53,7 @@ export default function Checkbox({ label, checked, onChange }: CheckboxProps) {
           }
         }}
       >
-        {!checked && <Check className="hidden group-hover:block p-0.5 text-gray-300" />}
+        {!checked && <Check className="hidden group-hover:block group-active:block p-0.5 text-check-hover group-active:text-check-press" />}
         {checked && <Check className="text-white p-0.5" />}
       </div>
     </div>

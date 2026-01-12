@@ -11,10 +11,12 @@ const PAGES = [
   { id: "page2", label: "Page 2" },
   { id: "page3", label: "Page 3" },
   { id: "page4", label: "Page 4" },
+  { id: "page5", label: "Page 5" },
+  { id: "page6", label: "Page 6" },
 ];
 
 export default function PageSelector() {
-  const [selected, setSelected] = useState<string[]>(["page1", "page2", "page3", "page4"]);
+  const [selected, setSelected] = useState<string[]>(["page1", "page2", "page3", "page4", "page5", "page6"]);
 
   const isAllSelected = selected.length === PAGES.length;
 
@@ -38,7 +40,7 @@ export default function PageSelector() {
   };
 
   return (
-    <Card className="flex flex-col w-[370px] p-4">
+    <Card className="flex flex-col w-[370px] py-[10px] items-center ">
       {/* "All Pages" Checkbox */}
       <Checkbox
         label="All pages"
@@ -49,7 +51,7 @@ export default function PageSelector() {
       <Divider />
 
       {/* Map through the pages array */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col w-full max-h-[164px] overflow-y-auto scrollbar-hide">
         {PAGES.map((page) => (
           <Checkbox
             key={page.id}
@@ -63,7 +65,7 @@ export default function PageSelector() {
       <Divider />
 
       <Button 
-        className="w-full" 
+        className="w-full my-[10px] w-[340px]" 
         onClick={() => console.log("Selected IDs:", selected)}
       >
         Done
